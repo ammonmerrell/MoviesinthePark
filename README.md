@@ -7,6 +7,8 @@
 
  - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
 
+(netfixy link)https://gleaming-basbousa-b14085.netlify.app/
+
 ### Prerequisites
 
 - You must have Node installed to run the following commands.

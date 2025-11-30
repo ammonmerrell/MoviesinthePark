@@ -1,57 +1,32 @@
 [
-    {
-        "Name": "newEvent",
-        "Date": "N/A",
-        "FinalMovie": "???",
-        "MovieList": [
-            "The+Peanuts+movie",
-            "Up",
-            "luca",
-            "Ice+Age"
-        ]
-    },
-    {
-        "Name": "event1",
-        "Date": "N/A",
-        "FinalMovie": "Ice+Age",
-        "MovieList": [
-            "The+Peanuts+movie",
-            "Up",
-            "luca",
-            "Ice+Age"
-        ]
-    },
-    {
-        "Name": "event2",
-        "Date": "N/A",
-        "FinalMovie": "up",
-        "MovieList": [
-            "The+Peanuts+movie",
-            "Up",
-            "luca",
-            "Ice+Age"
-        ]
-    },
-    {
-        "Name": "event3",
-        "Date": "N/A",
-        "FinalMovie": "the+peanuts+movie",
-        "MovieList": [
-            "The+Peanuts+movie",
-            "Up",
-            "luca",
-            "Ice+Age"
-        ]
-    },
-    {
-        "Name": "event4",
-        "Date": "N/A",
-        "FinalMovie": "luca",
-        "MovieList": [
-            "The+Peanuts+movie",
-            "Up",
-            "luca",
-            "Ice+Age"
-        ]
-    }
+  {
+    "Name": "newEvent",
+    "Date": "N/A",
+    "FinalMovie": "???",
+    "MovieList": ["The+Peanuts+movie", "Up", "luca", "Ice+Age"]
+  },
+  {
+    "Name": "event1",
+    "Date": "N/A",
+    "FinalMovie": "Ice+Age",
+    "MovieList": ["The+Peanuts+movie", "Up", "luca", "Ice+Age"]
+  },
+  {
+    "Name": "event2",
+    "Date": "N/A",
+    "FinalMovie": "up",
+    "MovieList": ["The+Peanuts+movie", "Up", "luca", "Ice+Age"]
+  },
+  {
+    "Name": "event3",
+    "Date": "N/A",
+    "FinalMovie": "the+peanuts+movie",
+    "MovieList": ["The+Peanuts+movie", "Up", "luca", "Ice+Age"]
+  },
+  {
+    "Name": "event4",
+    "Date": "N/A",
+    "FinalMovie": "luca",
+    "MovieList": ["The+Peanuts+movie", "Up", "luca", "Ice+Age"]
+  }
 ]

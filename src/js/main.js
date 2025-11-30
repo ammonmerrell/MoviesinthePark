@@ -45,3 +45,4 @@ function removeFromCart() {
 // addProductToList(ev)
 renderCartContents();
 removeFromCart();
+console.log("A");

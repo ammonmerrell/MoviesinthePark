@@ -18,7 +18,6 @@ function cartItemTemplate(item) {
   <a href="src/event/index.html"
     <h2 class="card__name">${item.Name}</h2>
     </a>
-  <button id="view" dataset="${item.Name}">${item.FinalMovie}</button>
 </li>`;
   return newItem;
 }

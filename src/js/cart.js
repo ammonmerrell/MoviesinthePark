@@ -1,28 +1,43 @@
-import { getLocalStorage } from "./utils.mjs";
+const title = document.querySelector(".name");
+title.innerHTML = "ad"
+const movie = document.querySelector("#movie")
+const pic = document.querySelector("#pic")
+const cap = document.querySelector("#caption")
+const url = 'https://www.omdbapi.com/?t=up&apikey=3cf352d ';
 
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+// const weatherTemp2 = document.querySelector('#movie');
+// const weatherIcon2 = document.querySelector('#pic');
+// const captionDest2 = document.querySelector('#caption');
+
+
+async function apiFetch() {
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            displayResults(data);
+        } else {
+            throw Error(await response.text());
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
+function displayResults(data) {
+    movie.innerHTML = `${data.Title}`;
+    
+    const desc = data.Poster;
+    pic.setAttribute('src', desc);
+    pic.setAttribute('alt', data.Title);
+    cap.textContent = `${data.Plot}`;
 
-  return newItem;
+    // weatherTemp2.innerHTML = `${data.Title}&deg;F`;
+    // const desc = data.Poster;
+    // console.log(data.Title)
+    // pic.setAttribute('src', desc);
+    // pic.setAttribute('alt', data.Title);
+    // cap.textContent = data.Plot;
 }
-
-renderCartContents();
+apiFetch()

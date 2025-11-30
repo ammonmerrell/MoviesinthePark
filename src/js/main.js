@@ -42,7 +42,7 @@ function removeFromCart() {
   );
 }
 
-// addProductToList(ev)
+addProductToList(ev)
 renderCartContents();
 removeFromCart();
 console.log("A");

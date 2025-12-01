@@ -15,8 +15,8 @@ function renderCartContents() {
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
-  <a href="src/event/index.html"
-    <h2 class="card__name">${item.Name}</h2>
+  <a href="/event/index.html"
+    <button class="card__name">${item.Name}</button>
     </a>
 </li>`;
   return newItem;
@@ -44,4 +44,4 @@ function removeFromCart() {
 
 // addProductToList(ev)
 renderCartContents();
-removeFromCart();
+// removeFromCart();

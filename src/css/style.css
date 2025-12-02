@@ -4,10 +4,10 @@
     font-weight: 400;
     font-style: normal;
   }
-  h2{
+  h2 {
     font-family: "Glass Antiqua", cursive;
-      font-weight: 400;
-      font-style: normal;
+    font-weight: 400;
+    font-style: normal;
   }
   p {
     font-family: "Montserrat", sans-serif;
@@ -15,23 +15,22 @@
     font-weight: 400;
     font-style: normal;
   }
-  caption{
+  caption {
     font-family: "Montserrat", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
-  .form{
+  .form {
     margin: 10px;
     display: flex;
     flex-direction: column;
     max-width: 300px;
   }
-  .form label{
+  .form label {
     display: flex;
     flex-direction: column;
   }
-
 }
 
 /* * {

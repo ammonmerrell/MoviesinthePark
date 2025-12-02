@@ -3,7 +3,19 @@ title.innerHTML = "Movie";
 const display = document.querySelector("#display");
 const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
-const url = "https://www.omdbapi.com/?t=up&apikey=3cf352d";
+const button = document.querySelector("#search")
+
+button.addEventListener("click", () => {
+  const getString = window.location.search;
+  const mySearch = new URLSearchParams(getString)
+  let movie = mySearch.get("movie")
+  let long = mySearch.get("desc")
+  const url = `https://www.omdbapi.com/?t=${movie}&apikey=3cf352d${long}`;
+})
+
+let movie = ""
+let long = ""
+const url = `https://www.omdbapi.com/?t=${movie}&apikey=3cf352d${long}`;
 
 
 async function apiFetch() {

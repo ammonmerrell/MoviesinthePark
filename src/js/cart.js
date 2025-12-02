@@ -1,13 +1,10 @@
 const title = document.querySelector(".name");
-title.innerHTML = "ad";
-const movie = document.querySelector("#movie");
+title.innerHTML = "Movie";
+const display = document.querySelector("#display");
 const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
 const url = "https://www.omdbapi.com/?t=up&apikey=3cf352d";
 
-// const weatherTemp2 = document.querySelector('#movie');
-// const weatherIcon2 = document.querySelector('#pic');
-// const captionDest2 = document.querySelector('#caption');
 
 async function apiFetch() {
   try {
@@ -25,18 +22,13 @@ async function apiFetch() {
 }
 
 function displayResults(data) {
-  movie.innerHTML = `${data.Title}`;
-
+  display.innerHTML = `${data.Title}`;
+  console.log(pic)
   const desc = data.Poster;
   pic.setAttribute("src", desc);
   pic.setAttribute("alt", data.Title);
   cap.textContent = `${data.Plot}`;
 
-  // weatherTemp2.innerHTML = `${data.Title}&deg;F`;
-  // const desc = data.Poster;
-  // console.log(data.Title)
-  // pic.setAttribute('src', desc);
-  // pic.setAttribute('alt', data.Title);
-  // cap.textContent = data.Plot;
+
 }
 apiFetch();

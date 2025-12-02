@@ -4,7 +4,11 @@
     font-weight: 400;
     font-style: normal;
   }
-
+  h2{
+    font-family: "Glass Antiqua", cursive;
+      font-weight: 400;
+      font-style: normal;
+  }
   p {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;

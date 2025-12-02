@@ -1,15 +1,18 @@
-const title = document.querySelector(".name");
-title.innerHTML = "Movie";
+
 const display = document.querySelector("#display");
 const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
 const button = document.querySelector("#search")
+const info = document.querySelector("#info")
 
+// get form response from user and puts them in variables.
 const getString = window.location.search;
 const mySearch = new URLSearchParams(getString)
 console.log(mySearch)
 let movie = mySearch.get("movie");
 let long = mySearch.get("desc");
+// checks to see if "long" variable is short, if so make it blank. 
+// if not, change it in order to run with the api.
 if (long == "short") {
     long = ""
 } else (
@@ -34,15 +37,24 @@ async function apiFetch() {
         console.log(error);
     }
 }
-
+// funtion displays results from api
 function displayResults(data) {
     display.innerHTML = `${data.Title}`;
     console.log(pic)
     const desc = data.Poster;
+    pic.setAttribute("alt", `${data.Title}`); 
     pic.setAttribute("src", desc);
-    pic.setAttribute("alt", data.Title);
-    cap.textContent = `${data.Plot}`;
-
-
+    // add info from api into p with all the data.
+    cap.innerHTML = `<imgcaption>${data.Plot}</imgcaption>
+    <p>Length: ${data.Runtime}</p>
+    <p>Genre: ${data.Genre}
+    <p>Rating: ${data.Rated}</p>
+    <p>Director: ${data.Director}</p>
+    <p>Actors: ${data.Actors}</p>
+    <p>Writers: ${data.Writer}</p>
+    <p>Released: ${data.Released}</p>
+    <p>Boxoffice: ${data.BoxOffice}</p>
+    <p>IMDB Rating: ${data.imdbRating}</p>
+    <p>Awards: ${data.Awards}`;
 }
 apiFetch();

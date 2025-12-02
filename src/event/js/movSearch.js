@@ -7,8 +7,15 @@ const button = document.querySelector("#search")
 
 const getString = window.location.search;
 const mySearch = new URLSearchParams(getString)
+console.log(mySearch)
 let movie = mySearch.get("movie");
 let long = mySearch.get("desc");
+if (long == "short") {
+    long = ""
+} else (
+    long = "&plot=full"
+)
+
 const url = `https://www.omdbapi.com/?t=${movie}&apikey=3cf352d${long}`;
 
 

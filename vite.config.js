@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
       },
       event: resolve(__dirname, "src/event/index.html"),
+      search: resolve(__dirname, "src/event/search.html"),
     },
   },
 });

@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movies In The Park | Event</title>
+    <title>Movies In The Park | Search</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon" href="../images/movieInPark.ico" />
     <meta name="author" content="Ammon Merrell" />
     <meta name="description" content="Ammon Merrell, Movies In Park" />
-    <meta property="og:title" content="Movies In Park | Event" />
+    <meta property="og:title" content="Movies In Park | Search" />
     <meta
       property="og:description"
-      content="The event page for Movies in Park website."
+      content="The search page for Movies in Park website."
     />
     <!-- <meta property="og:image" content=""> -->
     <!-- <meta property="og:url" content=""> -->
@@ -22,8 +22,11 @@
       href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Montserrat:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="js/cart.js" type="module"></script>
+    <!-- <script src="js/main.js" defer></script> -->
+    <script src="js/movSearch.js" type="module"></script>
   </head>
+  <!-- <a href="../src/images/movieInPark.ico"></a> -->
+
   <body>
     <header class="divider">
       <div class="logo">
@@ -32,19 +35,11 @@
       </div>
     </header>
     <main class="divider">
-      <h2 class="h2">suggest Movie</h2>
-      <form method="get" action="search.html" class="form">
-        <label
-          >Movie: <input type="text" name="movie" required title="movie search"
-        /></label>
-        <label
-          >short description:
-          <input type="radio" name="desc" value="short" checked />
-          <label>long description: </label
-          ><input type="Radio" name="desc" value="long"
-        /></label>
-        <label><input type="submit" value="search" id="search" /></label>
-      </form>
+      <figure>
+        <img id="pic" src="images/movieInPark.ico" alt="placeholder" />
+        <h2 id="display"></h2>
+        <imgcaption id="caption"></imgcaption>
+      </figure>
     </main>
     <footer>&copy;2025 | MoviesInThePark | WDD 330 | Ammon Merrell</footer>
   </body>

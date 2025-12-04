@@ -1,7 +1,8 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-const a = document.querySelector(".list");
-a.innerHTML = ``;
+const a = document.addEventListener("click", checkId);
+// ab.innerHTML = ``;
+
 function addProductToList(event) {
   const eventList = getLocalStorage("so-events") || [];
   eventList.push(event);
@@ -10,12 +11,12 @@ function addProductToList(event) {
 function renderCartContents() {
   const cartItems = getLocalStorage("so-events") || [];
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  a.innerHTML = htmlItems.join("");
+  document.querySelector(".list").innerHTML = htmlItems.join("");
 }
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
-  <a href="/event/index.html"
+  <a href="/event/index.html"></a>
     <button class="card__name">${item.Name}</button>
     </a>
 </li>`;
@@ -33,13 +34,25 @@ function removeFromCart() {
   buttons.forEach((button) =>
     button.addEventListener("click", function (event) {
       const itemId = event.target.getAttribute("dataset");
-      let cartItems = getLocalStorage("so-cart") || [];
+      let cartItems = getLocalStorage("so-events") || [];
       cartItems.splice(itemId, 1);
-      localStorage.setItem("so-cart", JSON.stringify(cartItems));
+      localStorage.setItem("so-events", JSON.stringify(cartItems));
       console.log(itemId);
       renderCartContents();
     }),
   );
+}
+
+function checkId(evt) {
+  let cart = getLocalStorage("so-events");
+  cart.forEach((element) => {
+    if (element.Name === evt.target.innerHTML) {
+      // compares the element name and the event target innerHTML to find the matching event.
+
+      setLocalStorage("event", element);
+      window.location.href = "/event/index.html";
+    }
+  });
 }
 
 // addProductToList(ev)

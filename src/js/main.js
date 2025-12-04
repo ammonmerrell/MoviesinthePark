@@ -1,8 +1,26 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 const a = document.addEventListener("click", checkId);
-// ab.innerHTML = ``;
+const b = document.addEventListener("click", addNewEvent);
+let number = 0
 
+document.querySelector(".new").innerHTML = "Add event"
+
+function addNewEvent() {
+  number += 1
+  console.log(ev.Name)
+  addProductToList(ev)
+}
+function addEventButton() {
+  // create new button to add event.
+  let newItem = `<li class="cart-card divider">
+  <a href="/event/index.html"></a>
+    <button class="card__name">Add New Event</button>
+    </a>
+</li>`;
+  document.querySelector(".new").innerHTML = newItem
+
+}
 function addProductToList(event) {
   const eventList = getLocalStorage("so-events") || [];
   eventList.push(event);
@@ -22,12 +40,14 @@ function cartItemTemplate(item) {
 </li>`;
   return newItem;
 }
-let ev = {
-  Name: "newEvent",
-  Date: "N/A",
-  FinalMovie: "???",
-  MovieList: ["The+Peanuts+movie", "Up", "luca", "Ice+Age"],
-};
+let ev = 
+  {
+    "Name": "newEvent",
+    "Date": "N/A",
+    "FinalMovie": "???",
+    "MovieList": [],
+    "index": parseInt(`${number}`)
+  };
 
 function removeFromCart() {
   const buttons = document.querySelectorAll("#view");
@@ -55,6 +75,7 @@ function checkId(evt) {
   });
 }
 
-// addProductToList(ev)
+
 renderCartContents();
 // removeFromCart();
+addEventButton()

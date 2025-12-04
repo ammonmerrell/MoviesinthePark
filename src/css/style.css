@@ -1,26 +1,17 @@
 :root {
-  h1 {
+  h1,h2 {
     font-family: "Glass Antiqua", cursive;
     font-weight: 400;
     font-style: normal;
   }
-  h2 {
-    font-family: "Glass Antiqua", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-  p {
+
+  p,caption {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
-  caption {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
+  
   .form {
     margin: 10px;
     display: flex;

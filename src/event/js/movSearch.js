@@ -3,6 +3,7 @@ const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
 const button = document.querySelector("#search");
 const info = document.querySelector("#info");
+const suggest = document.querySelector(".suggest")
 
 // get form response from user and puts them in variables.
 const getString = window.location.search;
@@ -52,4 +53,38 @@ function displayResults(data) {
     <p>IMDB Rating: ${data.imdbRating}</p>
     <p>Awards: ${data.Awards}`;
 }
+// copied function from utils.mjs
+function getLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+// copied function from utils.mjs
+function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+suggest.addEventListener("click", () => {
+  const eventList = getLocalStorage("event") || [];
+  let a = eventList.MovieList
+  a.push(movie)
+  eventList.MovieList = a
+  setLocalStorage("event", eventList);
+  const events = getLocalStorage("so-events")
+  checkId()
+  // simmilar function to main.js, changed localstorage variable
+  function checkId(evt) {
+  
+    let cart = getLocalStorage("so-events");
+    cart.forEach((element) => {
+      if (element.Name === eventList.Name) {
+        // compares the element name and the event target innerHTML to find the matching event.
+        // eventList.MovieList
+
+        // setLocalStorage("so-events", eventList.MovieList);
+        window.location.href = "/event/index.html";
+      }
+    });
+  }
+
+  // setLocalStorage("so-events", eventList)
+})
 apiFetch();

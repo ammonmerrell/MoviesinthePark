@@ -8,8 +8,6 @@ document.querySelector(".new").innerHTML = "Add event"
 
 function addNewEvent() {
   let number = getLocalStorage("so-events") || []
-  console.log(number.length)
-
   addProductToList({
     "Name": "newEvent",
     "Date": "N/A",
@@ -17,7 +15,10 @@ function addNewEvent() {
     "MovieList": [],
     "index": parseInt(`${number.length}`)
   });
+  number = getLocalStorage("so-events") || []
+  console.log(number)
   setLocalStorage("event", number);
+  checkId
   window.location.href = "/event/index.html";
 }
 function addEventButton() {

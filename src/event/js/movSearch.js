@@ -65,11 +65,21 @@ function setLocalStorage(key, data) {
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
   let a = eventList.MovieList
-  a.push(movie)
-  eventList.MovieList = a
-  setLocalStorage("event", eventList);
-  const events = getLocalStorage("so-events")
-  checkId()
+  console.log(a)
+  console.log(eventList)
+  if (Array.isArray(a)) {
+    a.push(movie)
+    eventList.MovieList = a
+    setLocalStorage("event", eventList);
+    const events = getLocalStorage("so-events")
+    checkId()
+  } else {
+    a += `${movie},`
+    eventList.MovieList = a
+    setLocalStorage("event", eventList);
+    const events = getLocalStorage("so-events")
+    checkId()
+  }
   // simmilar function to main.js, changed localstorage variable
   function checkId(evt) {
   
@@ -88,7 +98,15 @@ suggest.addEventListener("click", () => {
         }
       });
     } else {
-      setLocalStorage("so-events", cart)
+      console.log(cart.Name)
+      console.log(eventList)
+      // cart.forEach((element) => {
+      //   if (element.Name === eventList.Name) {
+      //     console.log("SAME")
+      //   }
+      // });
+      console.log(eventList)
+      setLocalStorage("so-events", eventList)
       window.location.href = "/event/index.html";
     }
     

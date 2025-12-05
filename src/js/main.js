@@ -101,7 +101,7 @@ function checkId(evt) {
     });
   } else {
     console.log(cart)
-    setLocalStorage("event", evt.target)
+    setLocalStorage("event", cart)
     window.location.href = "/event/index.html";
   }
 }

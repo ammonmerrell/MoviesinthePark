@@ -17,6 +17,7 @@ function addNewEvent() {
     "MovieList": [],
     "index": parseInt(`${number.length}`)
   });
+  setLocalStorage("event", number);
   window.location.href = "/event/index.html";
 }
 function addEventButton() {

@@ -7,9 +7,17 @@ let number = 0
 document.querySelector(".new").innerHTML = "Add event"
 
 function addNewEvent() {
-  number += 1
-  console.log(ev.Name)
-  addProductToList(ev)
+  let number = getLocalStorage("so-events") || []
+  console.log(number.length)
+
+  addProductToList({
+    "Name": "newEvent",
+    "Date": "N/A",
+    "FinalMovie": "???",
+    "MovieList": [],
+    "index": parseInt(`${number.length}`)
+  });
+  window.location.href = "/event/index.html";
 }
 function addEventButton() {
   // create new button to add event.

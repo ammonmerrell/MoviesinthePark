@@ -18,9 +18,14 @@ function addNewEvent() {
     "MovieList": [],
     "index": parseInt(`${number.length}`)
   });
-  number = getLocalStorage("so-events") || []
   console.log(number)
-  setLocalStorage("event", number);
+  setLocalStorage("event", {
+    "Name": "newEvent",
+    "Date": "N/A",
+    "FinalMovie": "???",
+    "MovieList": [],
+    "index": parseInt(`${number.length}`)
+  });
   // checkId
   window.location.href = "/event/index.html";
 }
@@ -40,7 +45,7 @@ function addProductToList(event) {
     eventList.push(event);
     setLocalStorage("so-events", eventList[0]);
   } else {
-    eventList.item = event
+    eventList + event
     console.log(typeof(eventList))
     setLocalStorage("so-events", eventList);
   }

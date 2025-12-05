@@ -64,7 +64,7 @@ function setLocalStorage(key, data) {
 
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
-  let a = eventList[0].MovieList
+  let a = eventList.MovieList
   a.push(movie)
   eventList.MovieList = a
   setLocalStorage("event", eventList);
@@ -75,16 +75,23 @@ suggest.addEventListener("click", () => {
   
     let cart = getLocalStorage("so-events");
     console.log(cart)
-    cart.forEach((element) => {
-      // compares the element name and the event target innerHTML to find the matching event.
-      if (element[0].Name === eventList[0].Name) {
-        // moves the data in the "event" variable(eventList) to the current event in "so-events" variable(cart).
-        cart.splice(eventList.index, 1, eventList)
-        // updates the "so-events" localstorage with the updated variable (cart). 
-        setLocalStorage("so-events", cart);
-        window.location.href = "/event/index.html";
-      }
-    });
+    console.log(Array.isArray(cart))
+    if (Array.isArray(cart)) {
+      cart.forEach((element) => {
+        // compares the element name and the event target innerHTML to find the matching event.
+        if (element.Name === eventList.Name) {
+          // moves the data in the "event" variable(eventList) to the current event in "so-events" variable(cart).
+          cart.splice(eventList.index, 1, eventList)
+          // updates the "so-events" localstorage with the updated variable (cart). 
+          setLocalStorage("so-events", cart);
+          window.location.href = "/event/index.html";
+        }
+      });
+    } else {
+      setLocalStorage("so-events", cart)
+      window.location.href = "/event/index.html";
+    }
+    
   }
 })
 apiFetch();

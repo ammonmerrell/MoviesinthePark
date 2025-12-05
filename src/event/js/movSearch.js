@@ -64,7 +64,7 @@ function setLocalStorage(key, data) {
 
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
-  let a = eventList.MovieList
+  let a = eventList[0].MovieList
   a.push(movie)
   eventList.MovieList = a
   setLocalStorage("event", eventList);
@@ -77,7 +77,7 @@ suggest.addEventListener("click", () => {
     console.log(cart)
     cart.forEach((element) => {
       // compares the element name and the event target innerHTML to find the matching event.
-      if (element.Name === eventList.Name) {
+      if (element.Name === eventList[0].Name) {
         // moves the data in the "event" variable(eventList) to the current event in "so-events" variable(cart).
         cart.splice(eventList.index, 1, eventList)
         // updates the "so-events" localstorage with the updated variable (cart). 

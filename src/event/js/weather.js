@@ -116,18 +116,18 @@ apiFetch2()
 
 date.addEventListener("click", () => {
     const eventList = getLocalStorage("event") || [];
-    let a = eventList.Date
+    let a = eventList.date
     console.log(a)
     console.log(eventList)
     if (Array.isArray(a)) {
-        a.push(Date)
-        eventList.Date = a
+        a.push(date)
+        eventList.date = a
         setLocalStorage("event", eventList);
         const events = getLocalStorage("so-events")
         checkId()
     } else {
         // a += `${a},`
-        eventList.Date = a
+        eventList.date = a
         setLocalStorage("event", eventList);
         const events = getLocalStorage("so-events")
         checkId()
@@ -151,7 +151,7 @@ date.addEventListener("click", () => {
             });
         } else {
             console.log("A")
-            eventList.Date = hrs
+            eventList.date = hrs
             // cart.forEach((element) => {
             //   if (element.Name === eventList.Name) {
             //     console.log("SAME")

@@ -13,7 +13,7 @@ function addNewEvent() {
   let number = getLocalStorage("so-events") || []
   addProductToList({
     "Name": "newEvent",
-    "Date": "N/A",
+    "date": "N/A",
     "FinalMovie": "???",
     "MovieList": [],
     "index": parseInt(`${number.length}`)
@@ -21,7 +21,7 @@ function addNewEvent() {
   console.log(number)
   setLocalStorage("event", {
     "Name": "newEvent",
-    "Date": "N/A",
+    "date": "N/A",
     "FinalMovie": "???",
     "MovieList": [],
     "index": parseInt(`${number.length}`)

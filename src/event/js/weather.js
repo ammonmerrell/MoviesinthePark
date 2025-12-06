@@ -158,6 +158,7 @@ date.addEventListener("click", () => {
             //   }
             // });
             setLocalStorage("so-events", eventList)
+            setLocalStorage("event", eventList)
             window.location.href = "/event/index.html";
         }
 

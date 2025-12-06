@@ -12,6 +12,7 @@ export default defineConfig({
       },
       event: resolve(__dirname, "src/event/index.html"),
       search: resolve(__dirname, "src/event/search.html"),
+      weather: resolve(__dirname, "src/event/weather.html"),
     },
   },
 });

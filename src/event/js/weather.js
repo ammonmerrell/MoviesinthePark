@@ -3,7 +3,10 @@ const pic = document.querySelector("#pic")
 const cap = document.querySelector("#caption")
 const getString = window.location.search;
 const mySearch = new URLSearchParams(getString);
+const date = document.querySelector(".date")
+
 let hrs = mySearch.get("hrs");
+
 
 const pic2 = document.querySelector("#pic2")
 const cap2 = document.querySelector("#caption2")
@@ -104,19 +107,59 @@ function displayResults(data) {
     console.log(data.properties.periods[hrs].windSpeed)
     location2.innerHTML = `Wind Speed: ${data.properties.periods[hrs].windSpeed}`;
     p2.innerHTML = `Wind Direction: ${data.properties.periods[hrs].windDirection}`;
-
-
-
-//     console.log(data.properties.periods[0].probabilityOfPrecipitation.value)
-//     location.innerHTML = `${data.properties.periods[0].temperature}&deg;F`;
-//     const iconsrc = `${data.properties.periods[0].icon}`;
-
-
-//     console.log(data)
-//     pic.setAttribute('src', iconsrc);
-//     pic.setAttribute('alt', data.properties.periods[1].shortForecast);
-//     cap.textContent = `${data.properties.periods[1].shortForecast}`;
 }
+
+
 
 apiFetch()
 apiFetch2()
+
+date.addEventListener("click", () => {
+    const eventList = getLocalStorage("event") || [];
+    let a = eventList.Date
+    console.log(a)
+    console.log(eventList)
+    if (Array.isArray(a)) {
+        a.push(Date)
+        eventList.Date = a
+        setLocalStorage("event", eventList);
+        const events = getLocalStorage("so-events")
+        checkId()
+    } else {
+        // a += `${a},`
+        eventList.Date = a
+        setLocalStorage("event", eventList);
+        const events = getLocalStorage("so-events")
+        checkId()
+    }
+    // simmilar function to main.js, changed localstorage variable
+    function checkId(evt) {
+
+        let cart = getLocalStorage("so-events");
+        console.log(cart)
+        console.log(Array.isArray(cart))
+        if (Array.isArray(cart)) {
+            cart.forEach((element) => {
+                // compares the element name and the event target innerHTML to find the matching event.
+                if (element.Name === eventList.Name) {
+                    // moves the data in the "event" variable(eventList) to the current event in "so-events" variable(cart).
+                    cart.splice(eventList.index, 1, eventList)
+                    // updates the "so-events" localstorage with the updated variable (cart). 
+                    setLocalStorage("so-events", cart);
+                    window.location.href = "/event/index.html";
+                }
+            });
+        } else {
+            console.log("A")
+            eventList.Date = hrs
+            // cart.forEach((element) => {
+            //   if (element.Name === eventList.Name) {
+            //     console.log("SAME")
+            //   }
+            // });
+            setLocalStorage("so-events", eventList)
+            window.location.href = "/event/index.html";
+        }
+
+    }
+})

@@ -1,3 +1,6 @@
+const location = document.querySelector(".location")
+let latitude = 40.60
+let longitude = -112.06
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
         function (position) {

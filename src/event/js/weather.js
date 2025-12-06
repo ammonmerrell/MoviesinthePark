@@ -1,7 +1,14 @@
-const location = document.querySelector(".location")
+const location1 = document.querySelector(".location")
 const pic = document.querySelector("#pic")
 const cap = document.querySelector("#caption")
+const getString = window.location.search;
+const mySearch = new URLSearchParams(getString);
+let hrs = mySearch.get("hrs");
 
+const pic2 = document.querySelector("#pic2")
+const cap2 = document.querySelector("#caption2")
+const location2 = document.querySelector(".location2")
+const p2 = document.querySelector("#location-button2")
 // const weatherTemp1 = document.querySelector('.location');
 // const weatherIcon1 = document.querySelector('#pic');
 // const captionDest1 = document.querySelector('#caption');
@@ -82,14 +89,22 @@ async function apiFetch2() {
 
 function displayResults(data) {
 
-    const iconsrc = `${data.properties.periods[0].icon}`;
+    const iconsrc = `${data.properties.periods[hrs].icon}`;
 
     pic.setAttribute('src', iconsrc);
-    pic.setAttribute('alt', data.properties.periods[0].shortForecast);
-    cap.textContent = `${data.properties.periods[0].shortForecast}`;
+    pic.setAttribute('alt', data.properties.periods[hrs].shortForecast);
+    cap.textContent = `Percipitaion: ${data.properties.periods[hrs].shortForecast}`;
 
-    console.log(data.properties.periods[0].probabilityOfPrecipitation.value)
-    location.innerHTML = `${data.properties.periods[0].temperature}&deg;F`;
+    console.log(data.properties.periods[hrs].windSpeed)
+    location1.innerHTML = `Temperature: ${data.properties.periods[hrs].temperature}&deg;F`;
+   
+    
+
+
+    console.log(data.properties.periods[hrs].windSpeed)
+    location2.innerHTML = `Wind Speed: ${data.properties.periods[hrs].windSpeed}`;
+    p2.innerHTML = `Wind Direction: ${data.properties.periods[hrs].windDirection}`;
+
 
 
 //     console.log(data.properties.periods[0].probabilityOfPrecipitation.value)

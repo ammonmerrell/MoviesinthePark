@@ -1,0 +1,16 @@
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            // output
+            console.log(latitude)
+            location.innerHTML = `Latitude: ${latitude} 🧭 Longitude: ${longitude}`;
+        },
+        function (error) {
+            location.textContent = `Error: ${error.message}`;
+        }
+    );
+} else {
+    location.textContent = "Geolocation is not supported by this browser.";
+}

@@ -1,33 +1,62 @@
 :root {
+  background-color: #112a46;
   h1,
   h2 {
     font-family: "Glass Antiqua", cursive;
     font-weight: 400;
     font-style: normal;
+    color: #ff9f3f;
   }
 
   p,
-  caption {
+  imgcaption,
+  img {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    color: #ff9f3f;
+    background-color: #112a46;
   }
 
+  input {
+    color: #ff9f3f;
+    background-color: #315782;
+  }
+
+  #weather,
+  .date,
+  .suggest {
+    margin-top: 24px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    color: #ff9f3f;
+    background-color: #315782;
+  }
   .form {
     margin: 10px;
     display: flex;
     flex-direction: column;
     max-width: 300px;
+    color: #ff9f3f;
   }
-  .form label {
+  .form label,
+  .fw {
     display: flex;
     flex-direction: column;
+    color: #ff9f3f;
   }
-  --background-color: (#112a46);
-  --color: (#ff9f3f);
+}
+button {
+  color: #ff9f3f;
 }
 
+footer {
+  color: #ff9f3f;
+}
 /* * {
   margin: 0;
   padding: 0;

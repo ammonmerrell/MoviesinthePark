@@ -8,7 +8,6 @@ const suggest = document.querySelector(".suggest");
 // get form response from user and puts them in variables.
 const getString = window.location.search;
 const mySearch = new URLSearchParams(getString);
-console.log(mySearch);
 let movie = mySearch.get("movie");
 let long = mySearch.get("desc");
 // checks to see if "long" variable is short, if so make it blank.
@@ -24,7 +23,6 @@ async function apiFetch() {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       displayResults(data);
     } else {
       throw Error(await response.text());
@@ -36,7 +34,6 @@ async function apiFetch() {
 // funtion displays results from api
 function displayResults(data) {
   display.innerHTML = `${data.Title}`;
-  console.log(pic);
   const desc = data.Poster;
   pic.setAttribute("alt", `${data.Title}`);
   pic.setAttribute("src", desc);
@@ -65,8 +62,6 @@ function setLocalStorage(key, data) {
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
   let a = eventList.MovieList;
-  console.log(a);
-  console.log(eventList);
   if (Array.isArray(a)) {
     a.push(movie);
     eventList.MovieList = a;
@@ -83,8 +78,6 @@ suggest.addEventListener("click", () => {
   // simmilar function to main.js, changed localstorage variable
   function checkId(evt) {
     let cart = getLocalStorage("so-events");
-    console.log(cart);
-    console.log(Array.isArray(cart));
     if (Array.isArray(cart)) {
       cart.forEach((element) => {
         // compares the element name and the event target innerHTML to find the matching event.
@@ -97,14 +90,6 @@ suggest.addEventListener("click", () => {
         }
       });
     } else {
-      console.log(cart.Name);
-      console.log(eventList);
-      // cart.forEach((element) => {
-      //   if (element.Name === eventList.Name) {
-      //     console.log("SAME")
-      //   }
-      // });
-      console.log(eventList);
       setLocalStorage("so-events", eventList);
       window.location.href = "/event/index.html";
     }

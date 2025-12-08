@@ -14,5 +14,5 @@ export default defineConfig({
         weather: resolve(__dirname, "src/event/weather.html"),
       },
     },
-  }
+  },
 });

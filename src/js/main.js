@@ -1,30 +1,29 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-const a = document.querySelector(".list")
+const a = document.querySelector(".list");
 a.addEventListener("click", checkId);
-const b = document.querySelector(".new")
+const b = document.querySelector(".new");
 b.addEventListener("click", addNewEvent);
 
-
-document.querySelector(".new").innerHTML = "Add event"
+document.querySelector(".new").innerHTML = "Add event";
 
 function addNewEvent() {
-  console.log("B")
-  let number = getLocalStorage("so-events") || []
+  console.log("B");
+  let number = getLocalStorage("so-events") || [];
   addProductToList({
-    "Name": "newEvent",
-    "date": "N/A",
-    "FinalMovie": "???",
-    "MovieList": [],
-    "index": parseInt(`${number.length}`)
+    Name: "newEvent",
+    date: "N/A",
+    FinalMovie: "???",
+    MovieList: [],
+    index: parseInt(`${number.length}`),
   });
-  console.log(number)
+  console.log(number);
   setLocalStorage("event", {
-    "Name": "newEvent",
-    "date": "N/A",
-    "FinalMovie": "???",
-    "MovieList": [],
-    "index": parseInt(`${number.length}`)
+    Name: "newEvent",
+    date: "N/A",
+    FinalMovie: "???",
+    MovieList: [],
+    index: parseInt(`${number.length}`),
   });
   // checkId
   window.location.href = "/event/index.html";
@@ -36,8 +35,7 @@ function addEventButton() {
     <button class="card__name">Add New Event</button>
     </a>
 </li>`;
-  document.querySelector(".new").innerHTML = newItem
-
+  document.querySelector(".new").innerHTML = newItem;
 }
 function addProductToList(event) {
   const eventList = getLocalStorage("so-events") || [];
@@ -45,20 +43,19 @@ function addProductToList(event) {
     eventList.push(event);
     setLocalStorage("so-events", eventList[0]);
   } else {
-    eventList + event
-    console.log(typeof (eventList))
+    eventList + event;
+    console.log(typeof eventList);
     setLocalStorage("so-events", eventList);
   }
- 
 }
 function renderCartContents() {
   const cartItems = getLocalStorage("so-events") || [];
-  console.log(cartItems)
+  console.log(cartItems);
   if (Array.isArray(cartItems)) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".list").innerHTML = htmlItems.join("");
   } else {
-    const htmlItems = cartItemTemplate(cartItems)
+    const htmlItems = cartItemTemplate(cartItems);
     document.querySelector(".list").innerHTML = htmlItems;
   }
 }
@@ -69,7 +66,7 @@ function cartItemTemplate(item) {
 </li>`;
   return newItem;
 }
-// let ev = 
+// let ev =
 //   {
 //     "Name": "newEvent",
 //     "Date": "N/A",
@@ -93,7 +90,7 @@ function cartItemTemplate(item) {
 // }
 
 function checkId(evt) {
-  console.log("A")
+  console.log("A");
   let cart = getLocalStorage("so-events");
   if (Array.isArray(cart)) {
     cart.forEach((element) => {
@@ -105,13 +102,12 @@ function checkId(evt) {
       }
     });
   } else {
-    console.log(cart)
-    setLocalStorage("event", cart)
+    console.log(cart);
+    setLocalStorage("event", cart);
     window.location.href = "/event/index.html";
   }
 }
 
-
 renderCartContents();
 // removeFromCart();
-addEventButton()
+addEventButton();

@@ -47,22 +47,17 @@ let url = `https://api.weather.gov/points/${latitude},${longitude}`;
 
 // urla = getLocalStorage("data")
 const urla = window.localStorage.getItem("data");
-console.log(urla);
-console.log(url);
 
 async function apiFetch() {
   try {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      console.log(data.properties.forecastHourly);
       let ad = data.properties.forecastHourly;
-      console.log(ad);
       localStorage.setItem("data", data.properties.forecastHourly);
       // setLocalStorage("data", ad)
       // displayResults(data);
     } else {
-      console.log("B");
       throw Error(await response.text());
     }
   } catch (error) {
@@ -73,10 +68,8 @@ async function apiFetch() {
 async function apiFetch2() {
   try {
     const response = await fetch(urla);
-    console.log(response);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       displayResults(data);
     } else {
       throw Error(await response.text());
@@ -93,10 +86,8 @@ function displayResults(data) {
   pic.setAttribute("alt", data.properties.periods[hrs].shortForecast);
   cap.textContent = `Percipitaion: ${data.properties.periods[hrs].shortForecast}`;
 
-  console.log(data.properties.periods[hrs].windSpeed);
   location1.innerHTML = `Temperature: ${data.properties.periods[hrs].temperature}&deg;F`;
 
-  console.log(data.properties.periods[hrs].windSpeed);
   location2.innerHTML = `Wind Speed: ${data.properties.periods[hrs].windSpeed}`;
   p2.innerHTML = `Wind Direction: ${data.properties.periods[hrs].windDirection}`;
 }
@@ -107,8 +98,6 @@ apiFetch2();
 date.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
   let a = eventList.date;
-  console.log(a);
-  console.log(eventList);
   if (Array.isArray(a)) {
     a.push(date);
     eventList.date = a;
@@ -125,8 +114,7 @@ date.addEventListener("click", () => {
   // simmilar function to main.js, changed localstorage variable
   function checkId(evt) {
     let cart = getLocalStorage("so-events");
-    console.log(cart);
-    console.log(Array.isArray(cart));
+
     if (Array.isArray(cart)) {
       cart.forEach((element) => {
         // compares the element name and the event target innerHTML to find the matching event.
@@ -139,13 +127,7 @@ date.addEventListener("click", () => {
         }
       });
     } else {
-      console.log("A");
       eventList.date = hrs;
-      // cart.forEach((element) => {
-      //   if (element.Name === eventList.Name) {
-      //     console.log("SAME")
-      //   }
-      // });
       setLocalStorage("so-events", eventList);
       setLocalStorage("event", eventList);
       window.location.href = "/event/index.html";

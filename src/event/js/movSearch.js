@@ -3,7 +3,7 @@ const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
 const button = document.querySelector("#search");
 const info = document.querySelector("#info");
-const suggest = document.querySelector(".suggest")
+const suggest = document.querySelector(".suggest");
 
 // get form response from user and puts them in variables.
 const getString = window.location.search;
@@ -64,52 +64,50 @@ function setLocalStorage(key, data) {
 
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
-  let a = eventList.MovieList
-  console.log(a)
-  console.log(eventList)
+  let a = eventList.MovieList;
+  console.log(a);
+  console.log(eventList);
   if (Array.isArray(a)) {
-    a.push(movie)
-    eventList.MovieList = a
+    a.push(movie);
+    eventList.MovieList = a;
     setLocalStorage("event", eventList);
-    const events = getLocalStorage("so-events")
-    checkId()
+    const events = getLocalStorage("so-events");
+    checkId();
   } else {
-    a += `${movie},`
-    eventList.MovieList = a
+    a += `${movie},`;
+    eventList.MovieList = a;
     setLocalStorage("event", eventList);
-    const events = getLocalStorage("so-events")
-    checkId()
+    const events = getLocalStorage("so-events");
+    checkId();
   }
   // simmilar function to main.js, changed localstorage variable
   function checkId(evt) {
-  
     let cart = getLocalStorage("so-events");
-    console.log(cart)
-    console.log(Array.isArray(cart))
+    console.log(cart);
+    console.log(Array.isArray(cart));
     if (Array.isArray(cart)) {
       cart.forEach((element) => {
         // compares the element name and the event target innerHTML to find the matching event.
         if (element.Name === eventList.Name) {
           // moves the data in the "event" variable(eventList) to the current event in "so-events" variable(cart).
-          cart.splice(eventList.index, 1, eventList)
-          // updates the "so-events" localstorage with the updated variable (cart). 
+          cart.splice(eventList.index, 1, eventList);
+          // updates the "so-events" localstorage with the updated variable (cart).
           setLocalStorage("so-events", cart);
           window.location.href = "/event/index.html";
         }
       });
     } else {
-      console.log(cart.Name)
-      console.log(eventList)
+      console.log(cart.Name);
+      console.log(eventList);
       // cart.forEach((element) => {
       //   if (element.Name === eventList.Name) {
       //     console.log("SAME")
       //   }
       // });
-      console.log(eventList)
-      setLocalStorage("so-events", eventList)
+      console.log(eventList);
+      setLocalStorage("so-events", eventList);
       window.location.href = "/event/index.html";
     }
-    
   }
-})
+});
 apiFetch();

@@ -7,7 +7,7 @@
 
  - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
 
-(netfixy link)https://gleaming-basbousa-b14085.netlify.app/
+(netfixy link)https://amazing-yeot-8d69ac.netlify.app/
 
 ### Prerequisites
 

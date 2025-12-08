@@ -94,8 +94,8 @@ function displayResults(data) {
 
     const iconsrc = `${data.properties.periods[hrs].icon}`;
 
-    pic.setAttribute('src', iconsrc);
-    pic.setAttribute('alt', data.properties.periods[hrs].shortForecast);
+    pic.setAttribute("src", iconsrc);
+    pic.setAttribute("alt", data.properties.periods[hrs].shortForecast);
     cap.textContent = `Percipitaion: ${data.properties.periods[hrs].shortForecast}`;
 
     console.log(data.properties.periods[hrs].windSpeed)

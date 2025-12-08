@@ -1,6 +1,6 @@
 const title = document.querySelector(".name");
 const info = document.querySelector(".info");
-const back = document.querySelector(".back")
+const back = document.querySelector(".back");
 // function imported/copied from utils
 let evmov = JSON.parse(localStorage.getItem("event"));
 info.innerHTML = `<p>Event: ${evmov.Name}</p>
@@ -8,8 +8,8 @@ info.innerHTML = `<p>Event: ${evmov.Name}</p>
 <p>Final Movie: ${evmov.FinalMovie}</p>
 <p>Movie Options: ${evmov.MovieList}</p>`;
 
-back.innerHTML = `<input type=submit value="Back" id="back"/>`
+back.innerHTML = `<input type=submit value="Back" id="back"/>`;
 
 back.addEventListener("click", () => {
-    window.location.href = "src/"
-})
+  window.location.href = "src/";
+});

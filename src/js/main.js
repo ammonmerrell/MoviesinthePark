@@ -4,7 +4,7 @@ const a = document.querySelector(".list")
 a.addEventListener("click", checkId);
 const b = document.querySelector(".new")
 b.addEventListener("click", addNewEvent);
-let number = 0
+
 
 document.querySelector(".new").innerHTML = "Add event"
 

@@ -46,7 +46,7 @@ function addProductToList(event) {
     setLocalStorage("so-events", eventList[0]);
   } else {
     eventList + event
-    console.log(typeof(eventList))
+    console.log(typeof (eventList))
     setLocalStorage("so-events", eventList);
   }
  
@@ -69,14 +69,14 @@ function cartItemTemplate(item) {
 </li>`;
   return newItem;
 }
-let ev = 
-  {
-    "Name": "newEvent",
-    "Date": "N/A",
-    "FinalMovie": "???",
-    "MovieList": [],
-    "index": parseInt(`${number}`)
-  };
+// let ev = 
+//   {
+//     "Name": "newEvent",
+//     "Date": "N/A",
+//     "FinalMovie": "???",
+//     "MovieList": [],
+//     "index": parseInt(`${number}`)
+//   };
 
 // function removeFromCart() {
 //   const buttons = document.querySelectorAll("#view");

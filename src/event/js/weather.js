@@ -34,7 +34,6 @@ async function apiFetch() {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      let ad = data.properties.forecastHourly;
       localStorage.setItem("data", data.properties.forecastHourly);
     } else {
       throw Error(await response.text());
@@ -76,7 +75,6 @@ function displayResults(data) {
     speed.innerHTML = `Wind Speed: ${data.properties.periods[hr].windSpeed}`;
     direction.innerHTML = `Wind Direction: ${data.properties.periods[hr].windDirection}`;
     hr += 1;
-    console.log(data.properties.periods[0].temperature);
   }
 }
 
@@ -90,12 +88,10 @@ date.addEventListener("click", () => {
     a.push(date);
     eventList.date = a;
     setLocalStorage("event", eventList);
-    const events = getLocalStorage("so-events");
     checkId();
   } else {
     eventList.date = a;
     setLocalStorage("event", eventList);
-    const events = getLocalStorage("so-events");
     checkId();
   }
   // simmilar function to main.js, changed localstorage variable

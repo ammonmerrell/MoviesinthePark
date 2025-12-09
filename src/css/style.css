@@ -1,5 +1,6 @@
 :root {
   background-color: #112a46;
+
   h1,
   h2 {
     font-family: "Glass Antiqua", cursive;
@@ -17,8 +18,10 @@
     font-weight: 400;
     font-style: normal;
     color: #ff9f3f;
-    /* background-color: #112a46; */
     margin-left: 10px;
+  }
+
+  .info {
   }
 
   input {
@@ -35,10 +38,11 @@
     margin-bottom: 10px;
     border-radius: 1cap;
   }
-  
-  #search{
+
+  #search {
     border-radius: 1cap;
   }
+
   button {
     color: #ff9f3f;
     background-color: #315782;
@@ -52,6 +56,7 @@
     max-width: 300px;
     color: #ff9f3f;
   }
+
   .form label,
   .fw {
     display: flex;
@@ -59,20 +64,11 @@
     color: #ff9f3f;
   }
 
-  button {
-    color: #ff9f3f;
+  .weather {
+    background-color: #315782;
   }
 
   footer {
     color: #ff9f3f;
   }
-  .weather {
-    background-color: #315782;
-  }
 }
-
-/* * *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */

@@ -21,9 +21,6 @@
     margin-left: 10px;
   }
 
-  .info {
-  }
-
   input {
     color: #ff9f3f;
     background-color: #315782;
@@ -32,7 +29,10 @@
   #weather,
   .date,
   .suggest,
-  #back {
+  #back,
+  .card__name {
+    color: #ff9f3f;
+    background-color: #315782;
     margin-top: 24px;
     margin-left: 100px;
     margin-bottom: 10px;
@@ -40,12 +40,6 @@
   }
 
   #search {
-    border-radius: 1cap;
-  }
-
-  button {
-    color: #ff9f3f;
-    background-color: #315782;
     border-radius: 1cap;
   }
 
@@ -62,10 +56,6 @@
     display: flex;
     flex-direction: column;
     color: #ff9f3f;
-  }
-
-  .weather {
-    background-color: #315782;
   }
 
   footer {

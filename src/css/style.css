@@ -26,6 +26,12 @@
     background-color: #315782;
   }
 
+  .in {
+    margin-left: 10px;
+    animation-name: move;
+    animation-duration: 4s;
+  }
+
   #weather,
   .date,
   .suggest,
@@ -39,8 +45,10 @@
     border-radius: 1cap;
   }
 
-  #search {
+  #search,
+  #select {
     border-radius: 1cap;
+    margin-top: 20px;
   }
 
   .form {
@@ -60,5 +68,15 @@
 
   footer {
     color: #ff9f3f;
+  }
+}
+
+@keyframes move {
+  from {
+    margin-left: 20px;
+  }
+
+  to {
+    margin-left: 50px;
   }
 }

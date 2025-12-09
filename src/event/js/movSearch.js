@@ -2,8 +2,6 @@ import { getLocalStorage, setLocalStorage } from "../../js/utils.mjs";
 const display = document.querySelector("#display");
 const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
-const button = document.querySelector("#search");
-const info = document.querySelector("#info");
 const suggest = document.querySelector(".suggest");
 
 // get form response from user and puts them in variables.
@@ -52,7 +50,6 @@ function displayResults(data) {
     <p>Awards: ${data.Awards}`;
 }
 
-
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
   let a = eventList.MovieList;
@@ -60,13 +57,12 @@ suggest.addEventListener("click", () => {
     a.push(movie);
     eventList.MovieList = a;
     setLocalStorage("event", eventList);
-    const events = getLocalStorage("so-events");
     checkId();
   } else {
     a += `${movie},`;
     eventList.MovieList = a;
     setLocalStorage("event", eventList);
-    const events = getLocalStorage("so-events");
+
     checkId();
   }
   // simmilar function to main.js, changed localstorage variable

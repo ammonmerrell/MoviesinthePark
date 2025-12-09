@@ -8,7 +8,6 @@ b.addEventListener("click", addNewEvent);
 document.querySelector(".new").innerHTML = "Add event";
 
 function addNewEvent() {
-  console.log("B");
   let number = getLocalStorage("so-events") || [];
   addProductToList({
     Name: "newEvent",
@@ -17,7 +16,6 @@ function addNewEvent() {
     MovieList: [],
     index: parseInt(`${number.length}`),
   });
-  console.log(number);
   setLocalStorage("event", {
     Name: "newEvent",
     date: "N/A",
@@ -44,13 +42,11 @@ function addProductToList(event) {
     setLocalStorage("so-events", eventList[0]);
   } else {
     eventList + event;
-    console.log(typeof eventList);
     setLocalStorage("so-events", eventList);
   }
 }
 function renderCartContents() {
   const cartItems = getLocalStorage("so-events") || [];
-  console.log(cartItems);
   if (Array.isArray(cartItems)) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".list").innerHTML = htmlItems.join("");
@@ -90,7 +86,6 @@ function cartItemTemplate(item) {
 // }
 
 function checkId(evt) {
-  console.log("A");
   let cart = getLocalStorage("so-events");
   if (Array.isArray(cart)) {
     cart.forEach((element) => {
@@ -102,7 +97,6 @@ function checkId(evt) {
       }
     });
   } else {
-    console.log(cart);
     setLocalStorage("event", cart);
     window.location.href = "/event/index.html";
   }

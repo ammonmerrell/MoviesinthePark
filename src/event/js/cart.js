@@ -28,5 +28,7 @@ final.addEventListener("click", () => {
   setLocalStorage("event", evmov);
   setLocalStorage("so-events", evmov);
   info.classList.toggle("in");
-  // window.location.href = "/event/index.html";
+  setTimeout(() => {
+    window.location.href = "/event/index.html";
+  }, 4000);
 });

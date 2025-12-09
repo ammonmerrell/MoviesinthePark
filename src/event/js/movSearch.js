@@ -52,7 +52,6 @@ function displayResults(data) {
     <p>Awards: ${data.Awards}`;
 }
 
-
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];
   let a = eventList.MovieList;

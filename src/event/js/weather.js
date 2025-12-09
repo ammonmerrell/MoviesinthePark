@@ -1,3 +1,5 @@
+import { getLocalStorage, setLocalStorage } from "../../js/utils.mjs";
+
 const location = document.querySelector(".location");
 const temp = document.querySelector(".temp");
 const pic = document.querySelector("#pic");
@@ -7,19 +9,16 @@ const direction = document.querySelector(".wind-direction");
 const getString = window.location.search;
 const mySearch = new URLSearchParams(getString);
 const date = document.querySelector(".date");
-
 const temp2 = document.querySelector(".temp2");
 const pic2 = document.querySelector("#pic2");
 const cap2 = document.querySelector("#caption2");
 const speed2 = document.querySelector(".wind-speed2");
 const direction2 = document.querySelector(".wind-direction2");
-
 const temp3 = document.querySelector(".temp3");
 const pic3 = document.querySelector("#pic3");
 const cap3 = document.querySelector("#caption3");
 const speed3 = document.querySelector(".wind-speed3");
 const direction3 = document.querySelector(".wind-direction3");
-
 const temp4 = document.querySelector(".temp4");
 const pic4 = document.querySelector("#pic4");
 const cap4 = document.querySelector("#caption4");
@@ -27,7 +26,6 @@ const speed4 = document.querySelector(".wind-speed4");
 const direction4 = document.querySelector(".wind-direction4");
 
 let hrs = mySearch.get("hrs");
-
 let latitude = 40.6;
 let longitude = -112.06;
 // geolocation api  template from week3 lesson module.
@@ -46,19 +44,9 @@ if (navigator.geolocation) {
 } else {
   location.textContent = "Geolocation is not supported by this browser.";
 }
-// copied from utils.mjs
-function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-
-// copied from utils.mjs
-function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
 
 let url = `https://api.weather.gov/points/${latitude},${longitude}`;
 
-// urla = getLocalStorage("data")
 const urla = window.localStorage.getItem("data");
 
 async function apiFetch() {

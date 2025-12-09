@@ -40,7 +40,7 @@ if (navigator.geolocation) {
       location.innerHTML = `Latitude: ${latitude} 🧭 Longitude: ${longitude}`;
     },
     function (error) {
-      location.textContent = `Error: ${error.message}. Setting latitude and longitude instead to "40.06" and "-112.06".`;
+      location.textContent = `Error: ${error.message}. Setting latitude and longitude instead to "${latitude}" and "${longitude}".`;
     },
   );
 } else {

@@ -29,15 +29,20 @@
   #weather,
   .date,
   .suggest,
-  .back {
+  #back {
     margin-top: 24px;
     margin-left: 100px;
     margin-bottom: 10px;
+    border-radius: 1cap;
   }
-
+  
+  #search{
+    border-radius: 1cap;
+  }
   button {
     color: #ff9f3f;
     background-color: #315782;
+    border-radius: 1cap;
   }
 
   .form {

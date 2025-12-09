@@ -1,19 +1,32 @@
-const location1 = document.querySelector(".location");
+const location = document.querySelector(".location");
+const temp = document.querySelector(".temp");
 const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
+const speed = document.querySelector(".wind-speed");
+const direction = document.querySelector(".wind-direction");
 const getString = window.location.search;
 const mySearch = new URLSearchParams(getString);
 const date = document.querySelector(".date");
 
-let hrs = mySearch.get("hrs");
-
+const temp2 = document.querySelector(".temp2");
 const pic2 = document.querySelector("#pic2");
 const cap2 = document.querySelector("#caption2");
-const location2 = document.querySelector(".location2");
-const p2 = document.querySelector("#location-button2");
-// const weatherTemp1 = document.querySelector('.location');
-// const weatherIcon1 = document.querySelector('#pic');
-// const captionDest1 = document.querySelector('#caption');
+const speed2 = document.querySelector(".wind-speed2");
+const direction2 = document.querySelector(".wind-direction2");
+
+const temp3 = document.querySelector(".temp3");
+const pic3 = document.querySelector("#pic3");
+const cap3 = document.querySelector("#caption3");
+const speed3 = document.querySelector(".wind-speed3");
+const direction3 = document.querySelector(".wind-direction3");
+
+const temp4 = document.querySelector(".temp4");
+const pic4 = document.querySelector("#pic4");
+const cap4 = document.querySelector("#caption4");
+const speed4 = document.querySelector(".wind-speed4");
+const direction4 = document.querySelector(".wind-direction4");
+
+let hrs = mySearch.get("hrs");
 
 let latitude = 40.6;
 let longitude = -112.06;
@@ -55,8 +68,6 @@ async function apiFetch() {
       const data = await response.json();
       let ad = data.properties.forecastHourly;
       localStorage.setItem("data", data.properties.forecastHourly);
-      // setLocalStorage("data", ad)
-      // displayResults(data);
     } else {
       throw Error(await response.text());
     }
@@ -80,16 +91,38 @@ async function apiFetch2() {
 }
 
 function displayResults(data) {
-  const iconsrc = `${data.properties.periods[hrs].icon}`;
+  const iconsrc = `${data.properties.periods[hrs - 1].icon}`;
 
   pic.setAttribute("src", iconsrc);
-  pic.setAttribute("alt", data.properties.periods[hrs].shortForecast);
-  cap.textContent = `Percipitaion: ${data.properties.periods[hrs].shortForecast}`;
+  pic.setAttribute("alt", data.properties.periods[hrs - 1].shortForecast);
+  cap.textContent = `Percipitaion: ${data.properties.periods[hrs - 1].shortForecast}`;
+  temp.innerHTML = `Temperature: ${data.properties.periods[hrs - 1].temperature}&deg;F`;
+  speed.innerHTML = `Wind Speed: ${data.properties.periods[hrs - 1].windSpeed}`;
+  direction.innerHTML = `Wind Direction: ${data.properties.periods[hrs - 1].windDirection}`;
 
-  location1.innerHTML = `Temperature: ${data.properties.periods[hrs].temperature}&deg;F`;
+  const iconsrc2 = `${data.properties.periods[hrs].icon}`;
+  pic2.setAttribute("src", iconsrc2);
+  pic2.setAttribute("alt", data.properties.periods[hrs].shortForecast);
+  cap2.textContent = `Percipitaion: ${data.properties.periods[hrs].shortForecast}`;
+  temp2.innerHTML = `Temperature: ${data.properties.periods[hrs].temperature}&deg;F`;
+  speed2.innerHTML = `Wind Speed: ${data.properties.periods[hrs].windSpeed}`;
+  direction2.innerHTML = `Wind Direction: ${data.properties.periods[hrs].windDirection}`;
 
-  location2.innerHTML = `Wind Speed: ${data.properties.periods[hrs].windSpeed}`;
-  p2.innerHTML = `Wind Direction: ${data.properties.periods[hrs].windDirection}`;
+  const iconsrc3 = `${data.properties.periods[hrs + 1].icon}`;
+  pic3.setAttribute("src", iconsrc3);
+  pic3.setAttribute("alt", data.properties.periods[hrs + 1].shortForecast);
+  cap3.textContent = `Percipitaion: ${data.properties.periods[hrs + 1].shortForecast}`;
+  temp3.innerHTML = `Temperature: ${data.properties.periods[hrs + 1].temperature}&deg;F`;
+  speed3.innerHTML = `Wind Speed: ${data.properties.periods[hrs + 1].windSpeed}`;
+  direction3.innerHTML = `Wind Direction: ${data.properties.periods[hrs + 1].windDirection}`;
+
+  const iconsrc4 = `${data.properties.periods[hrs + 1].icon}`;
+  pic4.setAttribute("src", iconsrc4);
+  pic4.setAttribute("alt", data.properties.periods[hrs + 2].shortForecast);
+  cap4.textContent = `Percipitaion: ${data.properties.periods[hrs + 2].shortForecast}`;
+  temp4.innerHTML = `Temperature: ${data.properties.periods[hrs + 2].temperature}&deg;F`;
+  speed4.innerHTML = `Wind Speed: ${data.properties.periods[hrs + 2].windSpeed}`;
+  direction4.innerHTML = `Wind Direction: ${data.properties.periods[hrs + 2].windDirection}`;
 }
 
 apiFetch();
@@ -105,7 +138,6 @@ date.addEventListener("click", () => {
     const events = getLocalStorage("so-events");
     checkId();
   } else {
-    // a += `${a},`
     eventList.date = a;
     setLocalStorage("event", eventList);
     const events = getLocalStorage("so-events");

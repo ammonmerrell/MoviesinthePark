@@ -54,17 +54,16 @@
     color: #ff9f3f;
   }
 
-    button {
-      color: #ff9f3f;
-    }
+  button {
+    color: #ff9f3f;
+  }
 
-    footer {
-      color: #ff9f3f;
-    }
-    .weather{
-      background-color: #315782;
-    }
-
+  footer {
+    color: #ff9f3f;
+  }
+  .weather {
+    background-color: #315782;
+  }
 }
 
 /* * *{

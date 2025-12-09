@@ -1,3 +1,4 @@
+import { getLocalStorage, setLocalStorage } from "../../js/utils.mjs";
 const display = document.querySelector("#display");
 const pic = document.querySelector("#pic");
 const cap = document.querySelector("#caption");
@@ -50,14 +51,7 @@ function displayResults(data) {
     <p>IMDB Rating: ${data.imdbRating}</p>
     <p>Awards: ${data.Awards}`;
 }
-// copied function from utils.mjs
-function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-// copied function from utils.mjs
-function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
+
 
 suggest.addEventListener("click", () => {
   const eventList = getLocalStorage("event") || [];

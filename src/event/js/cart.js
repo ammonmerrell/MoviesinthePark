@@ -1,8 +1,9 @@
+import { getLocalStorage } from "../../js/utils.mjs";
 const title = document.querySelector(".name");
 const info = document.querySelector(".info");
 const back = document.querySelector(".back");
 // function imported/copied from utils
-let evmov = JSON.parse(localStorage.getItem("event"));
+let evmov = getLocalStorage("event");
 info.innerHTML = `<p>Event: ${evmov.Name}</p>
 <p>Date: ${evmov.date}</p>
 <p>Final Movie: ${evmov.FinalMovie}</p>
@@ -11,5 +12,5 @@ info.innerHTML = `<p>Event: ${evmov.Name}</p>
 back.innerHTML = `<input type=submit value="Back" id="back"/>`;
 
 back.addEventListener("click", () => {
-  window.location.href = "src/";
+  window.location.href = "../../index.html";
 });
